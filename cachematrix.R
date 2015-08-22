@@ -26,20 +26,20 @@ makeCacheMatrix <- function(x = matrix()) {
 # if not it computes the inverse of the matrix.
 cacheSolve <- function(x, ...) {
       inverseMatrix<-x$getinverse()
-      print (inverseMatrix)
       if( !is.null(inverseMatrix)){
         print("Returning the cached inverse matrix")
         return(inverseMatrix)
       }
       inputMatrix<-x$get()
       inverseMatrix<-solve(inputMatrix,...)
-      x$set(inverseMatrix)
+      x$setinverse(inverseMatrix)
       inverseMatrix
 }
 
 # Test the code
-#input<- matrix(c(7,0,2,2,3,4,1,-1,-2), 3, 3)
-#class(input)
-#matrix<-makeCacheMatrix(input)
-#matrix$get()
-#cacheSolve(matrix)
+# input<- matrix(c(7,0,-3,2,3,4,1,-1,-2), 3, 3)
+# class(input)
+# matrix<-makeCacheMatrix(input)
+# matrix$get()
+# cacheSolve(matrix)
+# inv<-cacheSolve(matrix)
